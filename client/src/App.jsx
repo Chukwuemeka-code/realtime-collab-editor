@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
+import EditorPage from "./pages/EditorPage";
 
 // Only lets logged-in users see the page
 function PrivateRoute({ children }) {
@@ -22,6 +23,14 @@ export default function App() {
                 <DashboardPage />
               </PrivateRoute>
             }
+          />
+          <Route
+          path="/doc/:id"
+          element={
+            <PrivateRoute>
+              <EditorPage />
+            </PrivateRoute>
+          }
           />
         </Routes>
       </BrowserRouter>

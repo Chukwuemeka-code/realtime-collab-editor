@@ -6,7 +6,7 @@ export default function LoginPage() {
     const navigate = useNavigate();
 
     const [isRegister, setIsRegister] = useState(false);
-    const [name, setname ] = useState("");
+    const [name, setName ] = useState("");
     const [email, setEmail ] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");

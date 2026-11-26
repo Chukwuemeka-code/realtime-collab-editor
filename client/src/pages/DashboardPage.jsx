@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
+import { Link } from "react-router-dom";
 
 export default function DashboardPage() {
   const { user, logout } = useAuth();
@@ -55,7 +56,7 @@ export default function DashboardPage() {
       <ul>
         {documents.map((d) => (
           <li key={d.id} style={{ marginBottom: 8 }}>
-            {d.title} ({d.type}) - {d.role}{" "}
+            <Link to={`/doc/${d.id}`}>{d.title}</Link> ({d.type}) - {d.role}{" "}
             {d.role === "owner" && (
               <button onClick={() => deleteDocument(d.id)}>Delete</button>
             )}
